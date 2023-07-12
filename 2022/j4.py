@@ -23,7 +23,9 @@ for i in range(G):
     for x in x_constraints:
       if (x[0] in group and x[1] not in group) or (x[1] in group and x[0] not in group):
           x_viol += 1
-          x_constraints.remove(x)
+      else:
+          new_x.append(x)
+    x_constraints = new_x
 
     for y in y_constraints:
       if (y[0] in group and y[1] in group):
