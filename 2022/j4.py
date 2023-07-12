@@ -1,6 +1,5 @@
 X = int(input())
-
-x_viol = 0
+violations = 0
 x_constraints = []
 
 for i in range(X):
@@ -9,7 +8,6 @@ for i in range(X):
 
 Y = int(input())
 y_constraints = []
-y_viol = 0
 
 for i in range(Y):
     y_case = input().split()
@@ -22,15 +20,15 @@ for i in range(G):
     new_x = []
     for x in x_constraints:
       if (x[0] in group and x[1] not in group) or (x[1] in group and x[0] not in group):
-          x_viol += 1
+          violations += 1
       else:
           new_x.append(x)
     x_constraints = new_x
 
     for y in y_constraints:
       if (y[0] in group and y[1] in group):
-          y_viol += 1
+          violations += 1
 
 
-print(y_viol + x_viol)
+print(violations)
 
